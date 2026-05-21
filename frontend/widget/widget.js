@@ -40,7 +40,7 @@ class WixCountdownTimer extends HTMLElement {
     }
 
     async fetchConfigFromServer() {
-        const API_URL = "http://localhost:5000/api/countdown-config";
+        const API_URL = "https://elastic-neurotic-gravitate.ngrok-free.app/api/countdown-config";
         const timerElement = this.shadowRoot.getElementById("timer");
 
         try {
