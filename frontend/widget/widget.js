@@ -40,18 +40,11 @@ class WixCountdownTimer extends HTMLElement {
     }
 
     async fetchConfigFromServer() {
-        const API_URL = "https://elastic-neurotic-gravitate.ngrok-free.app/api/countdown-config";
+        const API_URL = "http://localhost:5000/api/countdown-config";
         const timerElement = this.shadowRoot.getElementById("timer");
 
         try {
-            // Đã thêm cấu hình headers để bỏ qua trang trung gian của ngrok bản free
-            const response = await fetch(API_URL, {
-                method: 'GET',
-                headers: {
-                    'ngrok-skip-browser-warning': '69420'
-                }
-            });
-            
+            const response = await fetch(API_URL);
             const configData = await response.json();
             
             const targetDateString = configData.targetDate;
